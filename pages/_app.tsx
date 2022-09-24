@@ -7,6 +7,7 @@ import { theme } from "~/lib/theme";
 import { useEffect, useState } from "react";
 import { Github } from "@icons-pack/react-simple-icons";
 import { useRouter } from "next/router";
+import ThemeToggle from "~/components/ThemeToggle";
 
 function AppShell({
   show,
@@ -15,14 +16,6 @@ function AppShell({
   show: boolean;
   children: React.ReactNode;
 }) {
-  const [mode, setMode] = useState<"light" | "dark">("light");
-  useEffect(() => {
-    if (mode === "dark") {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [mode]);
   return (
     <>
       {show && (
@@ -49,14 +42,7 @@ function AppShell({
               >
                 GitHub
               </Button>
-              <Button
-                size="sm"
-                onClick={() => {
-                  setMode(mode === "light" ? "dark" : "light");
-                }}
-              >
-                Mode: {mode}
-              </Button>
+              <ThemeToggle />
             </div>
           </div>
         </header>

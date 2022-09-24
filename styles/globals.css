@@ -22,7 +22,7 @@
   }
   [type="checkbox"],
   [type="radio"] {
-    @apply border-neutral-6 rounded text-primary-10 focus:ring-primary-9;
+    @apply border-neutral-6 rounded text-primary-10 focus:ring-primary-9 bg-transparent focus:ring-offset-0;
   }
 }
 

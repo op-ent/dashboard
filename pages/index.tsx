@@ -8,7 +8,7 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>op-ent. L{"'"}ENT open-source.</title>
+        <title>{"op-ent. L'ENT open-source."}</title>
       </Head>
       <div className="custom-container px-4 my-10">
         <img src="/img/logo.svg" className="w-24" alt="Logo d'op-ent" />

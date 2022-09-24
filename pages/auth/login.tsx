@@ -40,7 +40,7 @@ const Login: NextPage = () => {
                 Pas encore de compte ?{" "}
                 <Link
                   href="/auth/register"
-                  className="font-medium text-primary-10 hover:text-primary-9 focus:outline-none focus:ring-2 focus:ring-primary-9"
+                  className="font-medium text-primary-10 hover:text-primary-9 focus:outline-none focus:ring-2 focus:ring-primary-9 rounded"
                 >
                   S{"'"}inscrire
                 </Link>
@@ -76,7 +76,7 @@ const Login: NextPage = () => {
                       name="password"
                       id="password"
                       className="block w-full border-0 p-0 text-neutral-12 placeholder-neutral-11 focus:ring-0 sm:text-sm pr-10 rounded-none"
-                      placeholder="********"
+                      placeholder="••••••••"
                     />
                     <div className="absolute inset-y-0 right-0 flex items-center">
                       <button
@@ -102,7 +102,7 @@ const Login: NextPage = () => {
                   Mot de passe oublié ?{" "}
                   <Link
                     href="/auth/reset-password"
-                    className="font-medium text-primary-10 hover:text-primary-9 focus:outline-none focus:ring-2 focus:ring-primary-9"
+                    className="font-medium text-primary-10 hover:text-primary-9 focus:outline-none focus:ring-2 focus:ring-primary-9 rounded"
                   >
                     Réinitialiser
                   </Link>
@@ -132,11 +132,14 @@ const Login: NextPage = () => {
               <div className="flex mt-4 justify-center text-sm text-neutral-11 space-x-6">
                 <Link
                   href="/legal/legal-notices"
-                  className="hover:text-primary-9"
+                  className="hover:text-primary-9 rounded focus:outline-none focus:ring-2 focus:ring-primary-9"
                 >
                   Mentions légales
                 </Link>
-                <Link href="/support" className="hover:text-primary-9">
+                <Link
+                  href="/support"
+                  className="hover:text-primary-9 rounded focus:outline-none focus:ring-2 focus:ring-primary-9"
+                >
                   Support
                 </Link>
               </div>

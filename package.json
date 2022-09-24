@@ -14,6 +14,7 @@
     "@op-ent/unstyled-ui": "0.1.1-6",
     "@op-ent/unstyled-ui-theme": "0.0.2-2",
     "next": "^12.3.1",
+    "next-auth": "^4.10.3",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },

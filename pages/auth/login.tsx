@@ -1,12 +1,29 @@
-import type { NextPage } from "next";
+import type {
+  GetServerSideProps,
+  InferGetServerSidePropsType,
+  NextPage,
+} from "next";
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/solid";
 import { useState } from "react";
 import { Button } from "@op-ent/unstyled-ui";
 import ThemeToggle from "~/components/ThemeToggle";
 import Link from "next/link";
 import Head from "next/head";
+import { signIn } from "next-auth/react";
 
-const Login: NextPage = () => {
+export const getServerSideProps: GetServerSideProps<{
+  error: string;
+}> = async (context) => {
+  return {
+    props: {
+      error: (context.query.error || "NONE") as string,
+    },
+  };
+};
+
+const Login: NextPage<
+  InferGetServerSidePropsType<typeof getServerSideProps>
+> = ({ error }) => {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
@@ -45,6 +62,7 @@ const Login: NextPage = () => {
                   S{"'"}inscrire
                 </Link>
               </p>
+              <div>ERROR {error}</div>
             </div>
             <div className="bg-neutral-1 p-6 border border-neutral-6 rounded-xl">
               <div className="rounded-md border border-neutral-6 px-3 py-2 shadow-sm focus-within:border-primary-9 focus-within:ring-1 focus-within:ring-primary-9 mb-4 bg-neutral-2">
@@ -126,6 +144,12 @@ const Login: NextPage = () => {
                 color="primary"
                 className="w-full inline-flex justify-center"
                 size="lg"
+                onClick={() =>
+                  signIn("credentials", {
+                    email: "test@test.com",
+                    password: "test",
+                  })
+                }
               >
                 Se connecter
               </Button>

@@ -1,6 +1,7 @@
 import type { NextRequest, NextFetchEvent } from "next/server";
 import { NextResponse } from "next/server";
 import { withAuth } from "next-auth/middleware";
+import { pages } from "~/lib/next-auth";
 
 export default withAuth(
   async function middleware(req: NextRequest, ev: NextFetchEvent) {
@@ -20,9 +21,6 @@ export default withAuth(
       authorized: ({ req, token }) =>
         !!(token || req.nextUrl.pathname.includes(".")),
     },
-    pages: {
-      signIn: "/auth/login",
-      error: "/auth/login",
-    },
+    pages,
   }
 );

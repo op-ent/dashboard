@@ -1,5 +1,6 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import { pages } from "~/lib/next-auth";
 
 export default NextAuth({
   providers: [
@@ -37,8 +38,5 @@ export default NextAuth({
       },
     }),
   ],
-  pages: {
-    signIn: "/auth/login",
-    error: "/auth/login",
-  },
+  pages,
 });

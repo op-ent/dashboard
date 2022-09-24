@@ -1,16 +1,43 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  [type="text"],
+  [type="email"],
+  [type="url"],
+  [type="password"],
+  [type="number"],
+  [type="date"],
+  [type="datetime-local"],
+  [type="month"],
+  [type="search"],
+  [type="tel"],
+  [type="time"],
+  [type="week"],
+  [multiple],
+  textarea,
+  select {
+    @apply w-full border-neutral-6 rounded-md focus:border-primary-9 focus:ring-primary-9 bg-neutral-2;
+  }
+  [type="checkbox"],
+  [type="radio"] {
+    @apply border-neutral-6 rounded text-primary-10 focus:ring-primary-9;
+  }
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+#__next {
+  display: contents;
+}
+
+.custom-container {
+  @apply max-w-7xl mx-auto;
+}
+
+.dark {
+  color-scheme: dark;
 }
 
 * {
-  box-sizing: border-box;
+  @apply transition-colors;
 }

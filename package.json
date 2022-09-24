@@ -9,16 +9,24 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "12.1.6",
+    "@heroicons/react": "^2.0.11",
+    "@icons-pack/react-simple-icons": "^5.6.0",
+    "@op-ent/unstyled-ui": "0.1.1-6",
+    "@op-ent/unstyled-ui-theme": "0.0.2-2",
+    "next": "^12.3.1",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "@tailwindcss/forms": "^0.5.3",
     "@types/node": "18.0.0",
     "@types/react": "18.0.14",
     "@types/react-dom": "18.0.5",
+    "autoprefixer": "^10.4.12",
     "eslint": "8.18.0",
-    "eslint-config-next": "12.1.6",
+    "eslint-config-next": "^12.3.1",
+    "postcss": "^8.4.16",
+    "tailwindcss": "^3.1.8",
     "typescript": "4.7.4"
   }
 }

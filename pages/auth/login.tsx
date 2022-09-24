@@ -10,6 +10,7 @@ import ThemeToggle from "~/components/ThemeToggle";
 import Link from "next/link";
 import Head from "next/head";
 import { signIn } from "next-auth/react";
+import { useRouter } from "next/router";
 
 export const getServerSideProps: GetServerSideProps<{
   error: string;
@@ -25,6 +26,22 @@ const Login: NextPage<
   InferGetServerSidePropsType<typeof getServerSideProps>
 > = ({ error }) => {
   const [showPassword, setShowPassword] = useState(false);
+  const router = useRouter();
+
+  const login = async () => {
+    const data = await signIn("credentials", {
+      email: "test@test.com",
+      password: "test",
+      callbackUrl: "/",
+      redirect: false,
+    });
+    if (data && !data.error) {
+      router.push(data!.url!);
+    } else {
+      router.query.error = data!.error;
+      router.push(router);
+    }
+  };
 
   return (
     <>
@@ -144,12 +161,7 @@ const Login: NextPage<
                 color="primary"
                 className="w-full inline-flex justify-center"
                 size="lg"
-                onClick={() =>
-                  signIn("credentials", {
-                    email: "test@test.com",
-                    password: "test",
-                  })
-                }
+                onClick={() => login()}
               >
                 Se connecter
               </Button>

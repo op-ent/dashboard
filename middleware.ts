@@ -15,6 +15,11 @@ export default withAuth(
     // }
   },
   {
+    callbacks: {
+      // never block static assets
+      authorized: ({ req, token }) =>
+        !!(token || req.nextUrl.pathname.includes(".")),
+    },
     pages: {
       signIn: "/auth/login",
       error: "/auth/login",

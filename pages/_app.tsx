@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import { Github } from "@icons-pack/react-simple-icons";
 import { useRouter } from "next/router";
 import ThemeToggle from "~/components/ThemeToggle";
+import { signOut } from "next-auth/react";
 
 function AppShell({
   show,
@@ -16,6 +17,12 @@ function AppShell({
   show: boolean;
   children: React.ReactNode;
 }) {
+  const router = useRouter();
+
+  const logout = async () => {
+    const data = await signOut({ callbackUrl: "/", redirect: false });
+    router.push(data!.url!);
+  };
   return (
     <>
       {show && (
@@ -32,6 +39,9 @@ function AppShell({
               <div className="font-bold text-lg text-neutral-12">op-ent</div>
             </Link>
             <div className="flex items-center space-x-2">
+              <Button color="danger" size="sm" onClick={() => logout()}>
+                Logout
+              </Button>
               <Button
                 as={Link}
                 href="https://github.com/op-ent"

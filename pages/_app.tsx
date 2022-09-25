@@ -8,7 +8,8 @@ import { useEffect, useState } from "react";
 import { Github } from "@icons-pack/react-simple-icons";
 import { useRouter } from "next/router";
 import ThemeToggle from "~/components/ThemeToggle";
-import { signOut } from "next-auth/react";
+import { signOut, SessionProvider } from "next-auth/react";
+import { Toaster } from "react-hot-toast";
 
 function AppShell({
   show,
@@ -57,6 +58,7 @@ function AppShell({
           </div>
         </header>
       )}
+      <Toaster position="bottom-right" reverseOrder={true} />
       <main>{children}</main>
       {show && (
         <div className="mt-auto bg-neutral-2 p-4 text-neutral-11 text-center border-t border-t-neutral-6">
@@ -67,7 +69,10 @@ function AppShell({
   );
 }
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({
+  Component,
+  pageProps: { session, ...pageProps },
+}: AppProps & { pageProps: any }) {
   const { pathname } = useRouter();
   const [showShell, setShowShell] = useState(false);
   useEffect(() => {
@@ -80,9 +85,11 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <ThemeProvider value={theme}>
-      <AppShell show={showShell}>
-        <Component {...pageProps} />
-      </AppShell>
+      <SessionProvider session={session}>
+        <AppShell show={showShell}>
+          <Component {...pageProps} />
+        </AppShell>
+      </SessionProvider>
     </ThemeProvider>
   );
 }

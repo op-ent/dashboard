@@ -9,14 +9,17 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.2",
     "@heroicons/react": "^2.0.11",
     "@icons-pack/react-simple-icons": "^5.6.0",
     "@op-ent/unstyled-ui": "0.1.1-6",
     "@op-ent/unstyled-ui-theme": "0.0.2-2",
+    "clsx": "^1.2.1",
     "next": "^12.3.1",
     "next-auth": "^4.10.3",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-hot-toast": "^2.4.0"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.3",

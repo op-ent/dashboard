@@ -24,3 +24,7 @@ export default withAuth(
     pages,
   }
 );
+
+export const config = {
+  matcher: ["/((?!auth/register|auth/reset-password).*)"],
+};

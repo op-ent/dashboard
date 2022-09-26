@@ -38,8 +38,6 @@ Exécuter `yarn dev` pour lancer le serveur de développement.
 
 Publié sous la [licence MIT](./LICENSE).
 
----
-
 Fait avec ❤️ par [Florian LEFEBVRE](https://github.com/florian-lefebvre) en France.
 
 ---
